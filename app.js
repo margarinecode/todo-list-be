@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
 // Parse JSON request bodies
 app.use(express.json());
+app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+}));
 
 // Define your API routes
 const todoRoutes = require('./routes/todo');

@@ -12,6 +12,11 @@ app.use(cors({
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type,Authorization',
 }));
+app.use(cors({
+    origin: 'https://todo-list-fe-murex.vercel.app/',
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+}));
 
 // Define your API routes
 const todoRoutes = require('./routes/todo');

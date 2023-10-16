@@ -13,7 +13,7 @@ app.use(cors());
 //     allowedHeaders: 'Content-Type,Authorization',
 // }));
 app.use(cors({
-    origin: 'https://todo-list-fe-murex.vercel.app/',
+    origin: 'https://todo-list-fe-murex.vercel.app',
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type,Authorization',
 }));

@@ -20,6 +20,6 @@ sequelize.sync()
         console.error('Database synchronization error:', err);
     });
 
-app.listen(port,  () => {
+app.listen(port,  "0.0.0.0", () => {
     console.log(`Todo List API is running on http://localhost:${port}`);
 });

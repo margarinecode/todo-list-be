@@ -51,6 +51,26 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    const itemId = req.params.id; // Get the ID of the to-do item from the URL
+
+    try {
+        const todo = await Tasks.findByPk(itemId);
+
+        if (!todo) {
+            return res.status(404).json({ error: 'To-do item not found' });
+        }
+
+        // Delete the to-do item
+        await todo.destroy();
+        return res.json({ message: 'To-do item deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting to-do item:', err);
+        return res.status(500).json({ error: 'An error occurred while deleting the to-do item' });
+    }
+});
+
+
 // Add more routes for updating and deleting to-do items as needed
 
 module.exports = router;

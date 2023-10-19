@@ -6,7 +6,9 @@ const  Tasks = require('../models/Tasks')
 // Define a route to get all to-do items
 router.get('/', async (req, res) => {
     try {
-        const tasks = await Tasks.findAll();
+        const tasks = await Tasks.findAll({
+            order: [['createdAt', 'DESC']] // Sort by the 'createdAt' column in descending order
+        });
         res.json(tasks);
     } catch (err) {
         console.error('Error retrieving tasks:', err);
